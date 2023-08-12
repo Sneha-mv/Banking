@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Form Submission-SNS Banking
+{% endblock %}
+{% block content %}
+<br>
+<div class="container">
+  <div class="row">
+    <br>
+<h1 class="head1" style="text-align:center;font-size:34px;color:brown;font-style:italic;font-weight:bold"><u>Form Submission</u></h1><br><br>
+<br>
+    <form method="post" id="personForm" data-cities-url="{% url 'bankingapp:ajax_load_areas' %}">
+    {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-group row">
+            <div class="col-sm-2">Account Type</div>
+            <div class="col-sm-10">
+                <select>
+                    <option value>Savings</option>
+                    <option value>Current</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <div class="col-sm-2">Materials Provide</div>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                    <label class="form-check-label" for="gridCheck1">Debit Card  </label>
+                </div>
+                 <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck2">
+                    <label class="form-check-label" for="gridCheck1">Credit Card  </label>
+                </div>
+                 <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck3">
+                    <label class="form-check-label" for="gridCheck1">Cheque Book  </label>
+                </div>
+            </div>
+        </div>
+      <br><br><br>
+    <input type="submit" class="btn btn-primary" value="Submit" style="font-size:18px;margin-left:100px;">
+        <a href="{% url 'credentials:logout' %}" class="btn btn-primary" style="font-size:18px;margin-left:50px;">Logout</a>
+</form>
+      <div class="container">
+          <div class="row">
+              <div class="mx-auto">
+                  <br>
+                  {% for i in messages %}
+                  <a class="btn btn-success" style="font-size:18px;margin-left: 115px;">{{i}}</a>
+              </div>
+              <div class="mx-auto">
+                  <br>
+                  <a href="{% url 'bankingapp:index' %}" style="font-size:20px;margin-left:130px;color:brown;text-decoration:none;">Return Home Page</a>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_district").change(function () {
+        const url = $("#personForm").attr("data-cities-url");  // get the url of the `load_areas` view
+        const districtId = $(this).val();  // get the selected district ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-areas/ )
+            data: {
+                'district_id': districtId       // add the district id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                $("#id_area").html(data);  // replace the contents of the area input with the data that came from the server
+
+            }
+        });
+
+    });
+</script>
+
+
+{% endblock %}

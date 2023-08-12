@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid" style="background-color:#e6e6e6;margin-top:20px;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" style="color:black;font-size:18px;" href="{% url 'bankingapp:index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:black;font-size:18px;" href="{% url 'credentials:login' %}">Login</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" style="color:black;font-size:18px;" href="{% url 'credentials:register' %}">Register</a>
+        </li>
+        <li class="nav-item dropdown {% if 'ecommerceapp' in request.path %} active {% endif %}">
+          <a class="nav-link dropdown-toggle" style="color:black;font-size:18px;" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Branches
+          </a>
+          <ul class="dropdown-menu">
+            {% for dist in links %}
+              <li><a class="dropdown-item" href="{{dist.link}}">{{dist.name}}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

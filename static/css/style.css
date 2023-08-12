@@ -1,0 +1,60 @@
+/*** navbar page ***/
+.nav-item {
+       letter-spacing:.1em;
+       font-size:18px;
+       text-transform:uppercase;
+       font-family: 'Poppins', sans-serif;
+       font-weight:bold;
+          }
+
+.dropdown-item {
+        letter-spacing:.1em;
+        font-size:13px;
+        text-transform:uppercase;
+        font-family: 'Poppins', sans-serif;
+        font-weight:bold;
+               }
+
+.text-center {
+        padding-top:10px;
+        font-size:20px;
+             }
+/*** index page ***/
+
+.my_row_class {
+        padding-top:20px;
+              }
+
+.mx_auto {
+        color:#000;
+        font-size:20px;
+        font-family: 'Poppins', sans-serif;
+        font-weight:bold;
+                       }
+
+.my_image {
+        width:100%;
+        height:auto;
+          }
+
+.my_image_padding {
+        padding:10px;
+                  }
+
+.my_title {
+        font-size:25px;
+        text-transform:uppercase;
+        font-family: 'Poppins', sans-serif;
+        font-weight:bold;
+        letter-spacing:.05em;
+          }
+
+# Login Page
+.divider:after,
+.divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+                 }
+
