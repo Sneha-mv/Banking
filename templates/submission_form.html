@@ -12,6 +12,7 @@
 <br>
     <form method="post" id="personForm" data-cities-url="{% url 'bankingapp:ajax_load_areas' %}">
     {% csrf_token %}
+      <div>
         {{ form.as_p }}
         <div class="form-group row">
             <div class="col-sm-2">Account Type</div>
@@ -42,7 +43,7 @@
         </div>
       <br><br><br>
     <input type="submit" class="btn btn-primary" value="Submit" style="font-size:18px;margin-left:100px;">
-        <a href="{% url 'credentials:logout' %}" class="btn btn-primary" style="font-size:18px;margin-left:50px;">Logout</a>
+  </div>
 </form>
       <div class="container">
           <div class="row">
