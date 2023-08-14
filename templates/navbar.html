@@ -14,6 +14,9 @@
         <li class="nav-item" >
           <a class="nav-link" style="color:black;font-size:18px;" href="{% url 'credentials:register' %}">Register</a>
         </li>
+         <li class="nav-item" >
+          <a class="nav-link" style="color:black;font-size:18px;" href="{% url 'credentials:logout' %}">Logout</a>
+        </li>
         <li class="nav-item dropdown {% if 'ecommerceapp' in request.path %} active {% endif %}">
           <a class="nav-link dropdown-toggle" style="color:black;font-size:18px;" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Branches
